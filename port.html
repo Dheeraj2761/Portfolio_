@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dheeraj Makwana | Portfolio</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous" defer></script>
+
+    <style>
+        /* Reset & base */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            color: #1e293b;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        a {
+            color: #3b82f6;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        a:hover,
+        a:focus {
+            color: #f97316;
+            transform: translateY(-2px);
+        }
+        /* Container */
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+        /* Header & Nav */
+        
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            font-weight: 500;
+        }
+        
+        nav a {
+            color: #374151;
+            font-size: 1rem;
+            position: relative;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        nav a:hover,
+        nav a:focus {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+        /* Sections */
+        
+        section {
+            padding: 6rem 0;
+            scroll-margin-top: 80px;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        /* Hero Section */
+        
+        #home {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .hero-text {
+            animation: slideInLeft 1s ease-out;
+        }
+        
+        .hero-image {
+            animation: slideInRight 1s ease-out;
+        }
+        
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #1e293b;
+        }
+        
+        .hero-text p {
+            font-size: 1.5rem;
+            color: #64748b;
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+        
+        .profile-image {
+            width: 100%;
+            max-width: 400px;
+            height: 500px;
+            border-radius: 20px;
+            object-fit: cover;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .profile-image:hover {
+            transform: scale(1.02);
+        }
+        /* About Section */
+        
+        #about {
+            background: white;
+            border-radius: 20px;
+            margin: 2rem auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .about-text {
+            padding: 2rem;
+        }
+        
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: #374151;
+        }
+        
+        .about-image {
+            text-align: center;
+        }
+        
+        .campus-image {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        /* Projects Section */
+        
+        #projects {
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .project-card:hover,
+        .project-card:focus-within {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(59, 130, 246, 0.2);
+            border-color: #3b82f6;
+        }
+        
+        .project-card h3 {
+            color: #1e293b;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .project-card p {
+            color: #64748b;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .btn-github {
+            background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-github:hover,
+        .btn-github:focus {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(249, 115, 22, 0.4);
+        }
+        /* Skills Section */
+        
+        #skills {
+            background: white;
+            border-radius: 20px;
+            margin: 2rem auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .skill-item {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+        
+        .skill-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+        }
+        /* Contact Section */
+        
+        #contact {
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+            text-align: center;
+        }
+        
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .contact-link {
+            background: white;
+            padding: 1.5rem 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-weight: 600;
+        }
+        
+        .contact-link:hover,
+        .contact-link:focus {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+        }
+        /* Footer */
+        
+        footer {
+            background: #1e293b;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: auto;
+        }
+        /* Animations */
+        
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* Responsive Design */
+        
+        @media (max-width: 1024px) {
+            .hero-content,
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            .hero-text p {
+                font-size: 1.2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav {
+                gap: 1rem;
+                flex-wrap: wrap;
+            }
+            nav a {
+                font-size: 0.9rem;
+                padding: 0.4rem 0.8rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .contact-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .profile-image {
+                height: 300px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            .hero-text p {
+                font-size: 1.1rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            nav {
+                gap: 0.5rem;
+            }
+            nav a {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav aria-label="Primary navigation">
+            <a href="#home" tabindex="0">Home</a>
+            <a href="#about" tabindex="0">About</a>
+            <a href="#projects" tabindex="0">Projects</a>
+            <a href="#skills" tabindex="0">Skills</a>
+            <a href="#contact" tabindex="0">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" aria-label="Home section">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>Hi, I'm Dheeraj Makwana 👋</h1>
+                        <p>3rd Year B.Tech CSE Student | Aspiring Data Analyst & Web Developer</p>
+                    </div>
+                    <div class="hero-image">
+                        <img src="me1.jpeg" alt="Professional portrait of Dheeraj Makwana - a confident young computer science student with a warm smile, wearing formal attire against a modern office background" class="profile-image" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" aria-label="About section">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p><strong>College:</strong> Shri Vaishnav Vidyapeeth Vishwavidyalaya, Indore</p>
+                        <p><strong>Education:</strong> 3rd Year B.Tech in Computer Science Engineering</p>
+                        <p><strong>Skills:</strong> Python, SQL, Power BI, Excel, Web Development (HTML, CSS, JavaScript), Data Analytics</p>
+                        <p>Passionate about transforming raw data into meaningful insights and creating beautiful, functional web experiences. Always eager to learn new technologies and take on challenging projects.</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="clg2.jpeg" alt="Modern campus building of Shri Vaishnav Vidyapeeth Vishwavidyalaya with students walking through lush green pathways" class="campus-image" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" aria-label="Projects section">
+            <div class="container">
+                <h2 class="section-title">My Projects</h2>
+                <div class="projects-grid">
+                    <article class="project-card" tabindex="0">
+                        <h3>Diwali Sales Dashboard</h3>
+                        <p>Interactive Power BI dashboard analyzing Diwali sales trends with advanced visualizations and real-time data insights.</p>
+                        <a href="https://github.com/Dheeraj2761/Data_Analysis_project" class="btn-github" target="_blank">
+                            <i class="fab fa-github"></i> View Project
+                        </a>
+                    </article>
+
+                    <article class="project-card" tabindex="0">
+                        <h3>Student Placement Dashboard</h3>
+                        <p>Comprehensive dashboard tracking student placement statistics with predictive analytics and performance metrics.</p>
+                        <a href="https://github.com/Dheeraj2761/Data_Analysis_project" class="btn-github" target="_blank">
+                            <i class="fab fa-github"></i> View Project
+                        </a>
+                    </article>
+
+                    <article class="project-card" tabindex="0">
+                        <h3>Credit_Card_Transaction_Dashboard</h3>
+                        <p>Collection of data analysis projects using Python, SQL, and various visualization tools to solve real-world problems.</p>
+                        <a href="https://github.com/Dheeraj2761/Data_Analysis_project" class="btn-github" target="_blank">
+                            <i class="fab fa-github"></i> View Projects
+                        </a>
+                    </article>
+
+                    <!-- <article class="project-card" tabindex="0">
+                        <h3>Responsive Web Projects</h3>
+                        <p>Modern, mobile-first websites built with HTML, CSS, and JavaScript featuring smooth animations and clean design.</p>
+                        <a href="https://github.com/Dheeraj2761/Data_Analysis_project" class="btn-github" target="_blank">
+                            <i class="fab fa-github"></i> View Projects
+                        </a>
+                    </article> -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" aria-label="Skills section">
+            <div class="container">
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-item">Python</div>
+                    <div class="skill-item">SQL</div>
+                    <div class="skill-item">Power BI</div>
+                    <div class="skill-item">Excel</div>
+                    <div class="skill-item">HTML</div>
+                    <div class="skill-item">CSS</div>
+                    <div class="skill-item">JavaScript</div>
+                    <div class="skill-item">Data Analytics</div>
+                    <div class="skill-item">C</div>
+                    <div class="skill-item">C++</div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" aria-label="Contact section">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="contact-content">
+                    <p>I'm always open to discussing new opportunities, projects, or just chatting about technology!</p>
+                    <div class="contact-links">
+                        <a href="mailto:dhirajmakwana002@gmail.com" class="contact-link" tabindex="0">
+                            <i class="fas fa-envelope"></i> dhirajmakwana002@gmail.com
+                        </a>
+                        <a href="https://www.linkedin.com/in/dheeraj-makwana-7368b9273" class="contact-link" target="_blank" tabindex="0">
+                            <i class="fab fa-linkedin"></i> LinkedIn Profile
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Dheeraj Makwana | All Rights Reserved</p>
+            <p>Built with ❤️ using HTML, CSS & JavaScript</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling with offset for fixed header
+        document.querySelectorAll('nav a, .btn-github').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (this.getAttribute('href') ? .startsWith('#')) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        const offsetTop = targetElement.offsetTop - 80;
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Add scroll animation to elements
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all project cards and skill items
+        document.querySelectorAll('.project-card, .skill-item').forEach(el => {
+            el.style.opacity = '0';
+            observer.observe(el);
+        });
+    </script>
+</body>
+
+</html>
